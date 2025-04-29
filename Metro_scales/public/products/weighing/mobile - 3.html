@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - MyStore</title>
+    <link rel="stylesheet" href="/css/dektop/products.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="/css/mobile/products.css" media="screen and (max-width: 768px)">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+
+    <div class="product-page">
+        <div class="product-images-carousel">
+            <div class="image-slide"><img src="/media/home/weighing/mobile-2.png" alt="Product Image 1"></div>
+        </div>
+
+
+        <div class="product-details">
+            <h1 class="product-title">300mm x 300mm - 100kg Digital Electronic Weighing Scale</h1>
+            <div class="product-rating">
+                <span class="rating">4.5</span>
+                <span class="stars">★ ★ ★ ★ ☆</span>
+            </div>
+            <div class="price-details">
+                <p class="price">₹3850<span class="old-price">₹5500</span></p>
+                <p class="discount">-30% OFF</p>
+            </div>
+
+            <h2 class="product-heading">Product Details</h2>
+
+            <div class="product-highlights">
+                <h3>Top Highlights</h3>
+                <ul class="highlights-list">
+                    <li><strong>Special Feature</strong>    <span>Portable/Mobile</span></li>
+                    <li><strong>Display Type</strong>       <span>LED</span></li>
+                    <li><strong>Weight Limit</strong>       <span>100 Kilograms</span></li>
+                    <li><strong>Material</strong>           <span>Stainless Steel</span></li>
+                    <li><strong>Readout Accuracy</strong>   <span>10 grams </span></li>
+                    <li><strong>Item Weight</strong>        <span>10 Kilograms</span></li>
+                 </ul>
+            </div>
+
+            <p class="description">
+                <strong>Description:</strong> We guarantee prompt services and international standard quality to meet our customers' expectations in terms of quality, cost, and timely supply. We endeavour to be responsive to the needs of our clients with improved process and Production facilities. Business integrity is of paramount importance in our company ethos, while dealing with suppliers and clients. We have adopted an open management style to foster an environment of enthusiasm and build team spirit amongst ourselves.
+            </p>
+
+
+            <button class="buy-now" id="mob3">Add to Cart</button>
+        </div>
+    </div>
+    <!-- Razorpay Integration Script -->
+    <script>
+        var options = {
+            "key": "rzp_live_K9IfHUTBQy97yg", 
+            "amount": "385000",
+            "currency": "INR",
+            "name": "MetroScales",
+            "description": "Customized Goat Weighing Scale",
+            "image": "/media/metro.png", 
+            "handler": function (response) {
+                alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+
+        document.getElementById('mob3').onclick = function (e) { // <!-- change id -->
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - MyStore</title>
+    <link rel="stylesheet" href="/css/dektop/products.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="/css/mobile/products.css" media="screen and (max-width: 768px)">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+</head>
+
+<body>
+
+    <div class="product-page">
+        <div class="product-images-carousel">
+            <div class="image-slide"><img src="/media/home/index/baby.png" alt="Product Image 2"></div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">Baby Scale 20 Kg</h1>
+            <div class="product-rating">
+                <span class="rating">4.6</span>
+                <span class="stars">★ ★ ★ ★ ☆</span>
+            </div>
+
+            <div class="price-details">
+                <p class="price">₹3,499 <span class="old-price">₹6,500</span></p>
+                <p class="discount">-45% OFF</p>
+            </div>
+
+            <h2 class="product-heading">Product Details</h2>
+
+            <p class="Specifications">
+                <strong>Top Highlights</strong>
+            <ul>
+                <li>Power supply: AC 220V</li>
+                <li>Max weight capacity</li>
+                <li>For neonate use only</li>
+                <li>Designed specifically for weighing infants and young children up to 30kg</li>
+                <li>Accurately measures weight in increments of 10g or less</li>
+            </ul>
+            </p>
+
+            <p class="description">
+                <strong>Description:</strong>Provides a safe and stable platform for babies to lie on during weighing,
+                with non-slip surfaces and safety restraints to keep them secure. Easy to use and operate, with a large
+                LCD display that is easy to read and intuitive controls for taring
+                and unit conversion. Portable and lightweight, making it easy to move from room to room or to take on
+                the go.
+                Can be powered by batteries or AC adapter, providing flexibility and convenience. Durable and
+                long-lasting, with a sturdy construction that can withstand frequent use in a medical or
+                home setting.
+            </p>
+
+            <button class="buy-now" id="baby">Add to Cart</button>
+        </div>
+
+
+    </div>
+     <!-- Razorpay Integration Script -->
+ <script>
+    var options = {
+        "key": "rzp_live_K9IfHUTBQy97yg", 
+        "amount": "349900",
+        "currency": "INR",
+        "name": "MetroScales",
+        "description": "Customized Goat Weighing Scale",
+        "image": "/media/metro.png", 
+        "handler": function (response) {
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+
+    document.getElementById('baby').onclick = function (e) { // <!-- change id -->
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+
+
+
+</body>
+
+</html>

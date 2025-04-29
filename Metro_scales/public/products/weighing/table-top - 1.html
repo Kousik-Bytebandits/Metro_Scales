@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - MyStore</title>
+    <link rel="stylesheet" href="/css/dektop/products.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="/css/mobile/products.css" media="screen and (max-width: 768px)">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script> 
+</head>
+
+<body>
+
+    <div class="product-page">
+        <div class="product-images-carousel">
+            <div class="image-slide"><img src="/media/home/weighing/table-top-1.png" alt="Product Image 1"></div>
+ 
+        </div>
+
+
+        <div class="product-details">
+            <h1 class="product-title">20 KG Tabletop Premium Weighing Scale</h1>
+            <div class="product-rating">
+                <span class="rating">4.5</span>
+                <span class="stars">★ ★ ★ ★ ☆</span>
+            </div>
+            <div class="price-details">
+                <p class="price">₹3000 <span class="old-price">₹4000</span></p>
+                <p class="discount">-25% OFF</p>
+            </div>
+
+            <h2 class="product-heading">Product Details</h2>
+
+            <p class="Specifications">
+                <strong>Top Highlights</strong>
+            <ul>   
+                <li>Table Top with Digital Display</li>
+                <li>Measures in: KG, G</li>
+                <li>Material: Iron, Copper</li>
+                <li>Overload protection</li>
+                <li>Maximum Weighing Capacity: 30 kg</li>
+                <li>Auto zero tracking </li>
+                <li>Tare Function</li>
+            </ul>
+            </p>
+
+            <p class="description">
+                <strong>Description:</strong> Our weight measuring scales are a very sophisticated built system to provide accurate measurements. While measured, the quality of the weighing scale products are graded to bring out the best product life in order to serve a longer time. The table top scale is scale for a daily retail shop use in various ways. This weighing scale is suitable for home, Shop and Kitchen Weight measuring Purposes. 
+            </p>
+
+
+            <button class="buy-now" id="tt1">Add to Cart</button>
+        </div>
+    </div>
+<!-- Razorpay Integration Script -->
+<script>
+    var options = {
+        "key": "rzp_live_K9IfHUTBQy97yg", 
+        "amount": "300000",
+        "currency": "INR",
+        "name": "MetroScales",
+        "description": "Customized Goat Weighing Scale",
+        "image": "/media/metro.png", 
+        "handler": function (response) {
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+
+    document.getElementById('tt1').onclick = function (e) { // <!-- change id -->
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+</body>
+
+</html>

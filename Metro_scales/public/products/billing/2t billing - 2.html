@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - MyStore</title>
+    <link rel="stylesheet" href="/css/dektop/products.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="/css/mobile/products.css" media="screen and (max-width: 768px)">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+
+    <div class="product-page">
+        <div class="product-images-carousel">
+            <div class="image-slide"><img src="/media/home/billing/billing.png" alt="Product Image 1"></div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">2T Billing Machine With Tamil and English</h1>
+            <div class="product-rating">
+                <span class="rating">4.5</span>
+                <span class="stars">★ ★ ★ ★ ☆</span>
+            </div>
+            <div class="price-details">
+                <p class="price">₹14,500<span class="old-price">₹19,594</span></p>
+                <p class="discount">-26% OFF</p>
+            </div>
+
+            <h2 class="product-heading">Product Details</h2>
+
+            <div class="product-highlights">
+                <h3>Top Highlights</h3>
+                <ul class="highlights-list">
+                    <li><strong>Processor</strong>      <span>ARM Cortex M3</span></li>
+                    <li><strong>Supports</strong>         <span>Both English and Tamil</span></li>
+                    <li><strong>Battery</strong>        <span>7.4V, Li-Po Battery(2600mAH)</span></li>
+                    <li><strong>Input power</strong>    <span>9V,3A DC</span></li>
+                    <li><strong>Operator Display</strong> <span>16 Characters x 2 lines LCD Display with Back light</span></li>
+                 </ul>
+            </div>
+
+            <p class="description">
+                <strong>Description:</strong>  Versatile Printing: Print shipping labels, barcodes, price tags, and receipts with ease, utilizing the printer's 2-inch maximum printing width and 203 DPI resolution, ensuring crisp and professional-quality results.
+                Wireless Connectivity: Seamlessly connect to your Android or iOS smartphone or tablet via Bluetooth for wireless printing convenience, or use the included USB cable to connect directly to your laptop or desktop computer. 
+            </p>
+                
+
+            <button class="buy-now" id="rzp-2Tbilling"> Place Order</button>
+        </div>
+    </div>
+     <!-- Razorpay Integration Script -->
+     <script>
+        var options = {
+            "key": "rzp_live_K9IfHUTBQy97yg", 
+            "amount": "1450000",
+            "currency": "INR",
+            "name": "MetroScales",
+            "description": "Customized Goat Weighing Scale",
+            "image": "/media/metro.png", 
+            "handler": function (response) {
+                alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+
+        document.getElementById('rzp-2Tbilling').onclick = function (e) { // <!-- change id -->
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+
+</body>
+
+</html>

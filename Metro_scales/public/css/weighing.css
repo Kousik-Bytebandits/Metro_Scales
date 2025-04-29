@@ -1,0 +1,234 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.products {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px;
+    position: relative;
+    gap: 20px;
+}
+
+.product-item {
+    position: relative;
+    width: 180px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation-iteration-count: infinite;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.heading-banner img {
+    width: 100%;
+}
+
+.product-item img {
+    width: 100%;
+    display: block;
+}
+
+.product-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+    color: white;
+}
+
+.product-info p {
+    margin: 5px 0;
+}
+
+.product-info p:first-child {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.product-info p:last-child {
+    font-size: 1.2em;
+}
+
+/* swipe */
+.swipe-left {
+    background: #ffffff;
+}
+
+/* slider header */
+
+.slider-header {
+    padding-top: 10px;
+    padding-left: 5px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.slider-header .main-title {
+    font-weight: bold;
+    color: #000;
+}
+
+.slider-header .sub-title {
+    font-weight: normal;
+    color: #888;
+    margin-left: 5px;
+}
+
+.product-slider {
+    padding-bottom: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    /* Prevents wrapping to ensure all items stay in one line */
+    overflow-x: auto;
+    /* Allows horizontal scrolling if content overflows */
+    gap: 10px;
+    /* Space between the product cards */
+}
+
+.product-card {
+    flex: 1 0 calc(33.333% - 10px);
+    max-width: calc(33.333% - 10px);
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideIn 0.7s ease-in-out forwards;
+}
+
+/* Slide-In Animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Sequential Animation Delay */
+.product-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.product-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.product-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.product-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.product-card:nth-child(5) {
+    animation-delay: 1.0s;
+}
+
+.product-card:nth-child(6) {
+    animation-delay: 1.0s;
+}
+
+/* Add more nth-child selectors as needed for more cards */
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.product-card .price {
+    font-size: 14px;
+    color: #333;
+}
+
+.product-card .old-price {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.product-card .discount {
+    color: #e74c3c;
+}
+
+.product-card button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.product-card button:hover {
+    background-color: #555;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+    .product-slider {
+        gap: 5px;
+        /* Reduce gap between cards on smaller screens */
+    }
+
+    .product-card {
+        padding: 8px;
+        flex: 1 0 calc(45% - 10px);
+        /* Ensure cards are one-third of the width */
+        max-width: calc(45% - 10px);
+        /* Ensure cards are one-third of the width */
+    }
+
+    .product-card h3 {
+        font-size: 14px;
+        /* Smaller font for mobile */
+        margin: 8px 0;
+        margin-bottom: 0px;
+    }
+
+    .product-card p {
+        margin: 5px;
+    }
+
+    .product-card .price {
+        font-size: 12px;
+    }
+
+    .product-card button {
+        margin-top: 5px;
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
