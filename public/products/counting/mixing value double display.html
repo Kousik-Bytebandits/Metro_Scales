@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - MyStore</title>
+    <link rel="stylesheet" href="/css/dektop/products.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="/css/mobile/products.css" media="screen and (max-width: 768px)">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script> 
+</head>
+
+<body>
+
+    <div class="product-page">
+        <div class="product-images-carousel">
+            <div class="image-slide"><img src="/media/home/counting/mix-double.png" alt="Product Image 1"></div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">Double Display Mixed Value Counting Machine</h1>
+            <div class="product-rating">
+                <span class="rating">4.5</span>
+                <span class="stars">★ ★ ★ ★ ☆</span>
+            </div>
+            <div class="price-details">
+                <p class="price">₹10,500<span class="old-price">₹16,063</span></p>
+                <p class="discount">-13% OFF</p>
+            </div>
+
+            <h2 class="product-heading">Product Details</h2>
+
+            <div class="product-highlights">
+                <h3>Top Highlights</h3>
+                <ul class="highlights-list">
+                    <li><strong>Hopper Capacity</strong>    <span>300</span></li>
+                    <li><strong>Stacker Capacity</strong>   <span>300</span></li>
+                    <li><strong>Automatic Grade</strong>    <span>Automatic</span></li>
+                    <li><strong>Type</strong>               <span>Automatic</span></li>
+                    <li><strong>Counting Speed</strong>     <span>1000 per min</span></li>
+                 </ul>
+            </div>
+
+            <p class="description">
+                <strong>Description:</strong> 
+            </p>
+
+
+            <button class="buy-now" id="mix"> Place Order</button>
+        </div>
+    </div>
+     <!-- Razorpay Integration Script -->
+ <script>
+    var options = {
+        "key": "rzp_live_K9IfHUTBQy97yg", 
+        "amount": "1050000",
+        "currency": "INR",
+        "name": "MetroScales",
+        "description": "Customized Goat Weighing Scale",
+        "image": "/media/metro.png", 
+        "handler": function (response) {
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+
+    document.getElementById('mix').onclick = function (e) { // <!-- change id -->
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+
+</body>
+
+</html>

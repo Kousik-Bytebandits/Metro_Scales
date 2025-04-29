@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - MyStore</title>
+    <link rel="stylesheet" href="/css/dektop/products.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="/css/mobile/products.css" media="screen and (max-width: 768px)">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script> 
+</head>
+
+<body>
+
+    <div class="product-page">
+        <div class="product-images-carousel">
+            <div class="image-slide"><img src="/media/home/sealing/sealing.png" alt="Product Image 1"></div>
+            <div class="image-slide"><img src="/media/home/sealing/sealing2.png" alt="Product Image 1"></div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">12 inch Polybag Sealing Machine 2 mm sealing machine</h1>
+            <div class="product-rating">
+                <span class="rating">4.5</span>
+                <span class="stars">★ ★ ★ ★ ☆</span>
+            </div>
+            <div class="price-details">
+                <p class="price">₹2,100<span class="old-price">₹3,545</span></p>
+                <p class="discount">-38% OFF</p>
+            </div>
+
+            <h2 class="product-heading">Product Details</h2>
+
+            <div class="product-highlights">
+                <h3>Top Highlights</h3>
+                <ul class="highlights-list">
+                    <li><strong>Operation Mode</strong>   <span> 	Manual</span></li>
+                    <li><strong>Color</strong>            <span>Orange</span></li>
+                    <li><strong>Type of Product</strong>  <span> 	Polybag Sealing Machine</span></li>
+                    <li><strong>Material</strong>         <span> 	Iron</span></li>
+                    <li><strong>Voltage</strong>          <span>220V</span></li>
+                    <li><strong>Power</strong>            <span>300 W</span></li>
+                 </ul>
+            </div>
+
+            <p class="description">
+                <strong>Description:</strong>The machine is designed for user convenience, with a straightforward interface that makes operation intuitive for both seasoned users and those new to polybag sealing. The efficient heating element enables quick warm-up, allowing you to start sealing your bags promptly, saving time and increasing productivity.
+
+                The compact design makes it suitable for limited workspace, and its portability ensures easy relocation as needed. Whether you are sealing small packages for retail, organizing items for storage, or preparing shipments, this polybag sealing machine is a reliable and efficient tool for achieving professional results.
+                
+                Incorporating functionality with style, the Fulcrum Polybag Sealing Machine in blue is a valuable addition to any packaging operation, providing a seamless and dependable solution for your sealing needs. 
+
+
+            <button class="buy-now" id="12i">Add to Cart</button>
+        </div>
+    </div>
+    <!-- Razorpay Integration Script -->
+    <script>
+        var options = {
+            "key": "rzp_live_K9IfHUTBQy97yg", 
+            "amount": "210000",
+            "currency": "INR",
+            "name": "MetroScales",
+            "description": "Customized Goat Weighing Scale",
+            "image": "/media/metro.png", 
+            "handler": function (response) {
+                alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+
+        document.getElementById('12i').onclick = function (e) { // <!-- change id -->
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+
+</body>
+
+</html>

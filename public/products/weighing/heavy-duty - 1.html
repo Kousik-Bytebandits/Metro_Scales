@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - MyStore</title>
+    <link rel="stylesheet" href="/css/dektop/products.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="/css/mobile/products.css" media="screen and (max-width: 768px)">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script> 
+</head>
+
+<body>
+
+    <div class="product-page">
+        <div class="product-images-carousel">
+            <div class="image-slide"><img src="/media/home/weighing/heavy-1.png" alt="Product Image 1"></div>
+        </div>
+
+
+        <div class="product-details">
+            <h1 class="product-title">1 Ton C Channel Platform Scale(1000mm x 1000mm)</h1>
+            <div class="product-rating">
+                <span class="rating">4.5</span>
+                <span class="stars">★ ★ ★ ★ ☆</span>
+            </div>
+            <div class="price-details">
+                <p class="price">₹23500 <span class="old-price">₹24999</span></p>
+                <p class="discount">-6% OFF</p>
+            </div>
+
+            <p class="Specifications">
+                <strong>Top Highlights</strong>
+            <ul>
+                <li>Multiple Weighing Modes</li>
+                <li>Heavy Duty Designed with MS Checker Plate</li>
+                <li>Battery Provide upto 20 hours of Continous Use</li>
+                <li>Overload protection</li>
+                <li>Heavy Duty Platform Designed For Varirty of Weighing Application</li>
+            </ul>
+            </p>
+
+            <p class="description">
+                <strong>Description:</strong> To meet the diversified demands of the customers, we are engrossed in
+                manufacturing and supplying Digital Weighing Scales. Utilizing latest techniques and tools, these scales
+                are developed in accordance with the international quality norms. Generally used for weighing different
+                kinds of products, these scales are available in the market at pocket friendly prices. Stringent quality
+                checks are conducted by our quality analyzers in order to rule out any possibilities of flaw in our
+                range.
+            </p>
+
+
+            <button class="buy-now" id="h1">Add to Cart</button>
+        </div>
+    </div>
+    <!-- Razorpay Integration Script -->
+    <script>
+        var options = {
+            "key": "rzp_live_K9IfHUTBQy97yg", 
+            "amount": "2350000",
+            "currency": "INR",
+            "name": "MetroScales",
+            "description": "Customized Goat Weighing Scale",
+            "image": "/media/metro.png", 
+            "handler": function (response) {
+                alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+
+        document.getElementById('h1').onclick = function (e) { // <!-- change id -->
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+
+</body>
+
+</html>
